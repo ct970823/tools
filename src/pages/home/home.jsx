@@ -5,7 +5,7 @@ import HeaderBox from '../../components/header-box/header-box'
 import SliderBox from "../../components/slider-box/slider-box";
 import Applets from "../applets/applets";
 import Welcome from "../welcome/welcome";
-import NotFond from "../error/not-fond";
+import NoFoundPage from "../error/404";
 import RichTextEditor from "../richTextEditor/richTextEditor";
 import ProTable from "../pro-table/pro-table";
 import './home.less'
@@ -36,7 +36,7 @@ function Home() {
                         <Route path='/richTextEditor' component={RichTextEditor}/>
                         <Route path='/proTable' component={ProTable}/>
                         {/*上面没有一个匹配的，直接显示*/}
-                        <Route component={NotFond}/>
+                        <Route component={NoFoundPage}/>
                     </Switch>
                 </Content>
             </Layout>
