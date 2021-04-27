@@ -35,11 +35,11 @@ const columns = [
         onFilter: true,
         valueType: 'select',
         valueEnum: {
-            all: { text: '全部', status: 'Default' },
-            close: { text: '关闭', status: 'Default' },
-            running: { text: '运行中', status: 'Processing' },
-            online: { text: '已上线', status: 'Success' },
-            error: { text: '异常', status: 'Error' },
+            all: {text: '全部', status: 'Default'},
+            close: {text: '关闭', status: 'Default'},
+            running: {text: '运行中', status: 'Processing'},
+            online: {text: '已上线', status: 'Success'},
+            error: {text: '异常', status: 'Error'},
         },
     },
     {
@@ -74,30 +74,30 @@ export default () => {
     });
     return (
         <ProTable
-        columns={columns}
-    request={(params) =>
-    Promise.resolve({
-        data: tableListDataSource.filter((item) => {
-            if (!params.keyWord) {
-                return true;
+            columns={columns}
+            request={(params) =>
+                Promise.resolve({
+                    data: tableListDataSource.filter((item) => {
+                        if (!params.keyWord) {
+                            return true;
+                        }
+                        if (item.name.includes(params.keyWord) || item.status.includes(params.keyWord)) {
+                            return true;
+                        }
+                        return false;
+                    }),
+                    success: true,
+                })
             }
-            if (item.name.includes(params.keyWord) || item.status.includes(params.keyWord)) {
-                return true;
-            }
-            return false;
-        }),
-        success: true,
-    })
-}
-    options={{
-        search: true,
-    }}
-    rowKey="key"
-    columnsStateMap={columnsStateMap}
-    onColumnsStateChange={(map) => setColumnsStateMap(map)}
-    search={false}
-    dateFormatter="string"
-    headerTitle="受控模式"
+            options={{
+                search: true,
+            }}
+            rowKey="key"
+            columnsStateMap={columnsStateMap}
+            onColumnsStateChange={(map) => setColumnsStateMap(map)}
+            search={false}
+            dateFormatter="string"
+            headerTitle="受控模式"
         />
-);
+    );
 };

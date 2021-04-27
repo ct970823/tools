@@ -2,7 +2,8 @@ import {
     HomeOutlined,
     QrcodeOutlined,
     FileTextOutlined,
-    TableOutlined
+    TableOutlined,
+    WechatOutlined
 } from '@ant-design/icons'
 
  const menuList = [
@@ -18,6 +19,11 @@ import {
         icon: <QrcodeOutlined />
     },
      {
+         title: 'H5跳转小程序',
+         key: '/jump-mp',
+         icon: <WechatOutlined />
+     },
+     {
          title: '富文本',
          key: '/richTextEditor',
          icon: <FileTextOutlined />
@@ -25,6 +31,11 @@ import {
      {
          title: '高级表格',
          key: '/proTable',
+         icon: <TableOutlined />
+     },
+     {
+         title: '上传',
+         key: '/upload',
          icon: <TableOutlined />
      },
     // {

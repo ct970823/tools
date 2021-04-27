@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Result, Button } from 'antd';
 import {useHistory} from 'react-router-dom'
 export default () => {
