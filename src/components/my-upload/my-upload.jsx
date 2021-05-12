@@ -67,16 +67,21 @@ const MyUpload = (props) => {
      */
     const handleCancel = () => setPreviewVisible(false);
 
+    const handleDownLoad = () => {
+        console.log(1)
+    }
 
     return (
-        <>
+        <div className="my-upload-box">
             <ImgCrop rotate>
+                {/*<img src="123213" alt="ces"/>*/}
                 <Upload
                     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                     listType='picture-card'
                     fileList={fileList}
                     onChange={onChange}
                     onPreview={handlePreview}
+                    onDownload={handleDownLoad}
                 >
                     {/*{*/}
                     {/*    fileList.map(item=>(*/}
@@ -95,7 +100,7 @@ const MyUpload = (props) => {
             >
                 <img alt="example" style={{ width: '100%' }} src={previewImage} />
             </Modal>
-        </>
+        </div>
     )
 }
 export default MyUpload

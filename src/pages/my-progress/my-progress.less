@@ -1,0 +1,24 @@
+@import '~antd/lib/style/themes/default.less';
+.svg-progress{
+  width: 132px;
+  height: 132px;
+  &-circle1{
+    fill: #f5f5f5;
+  }
+  &-circle2{
+    stroke: @primary-color;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    fill: none;
+    transform: rotate(-90deg);
+    transform-origin: 50%;
+    stroke-dasharray: 70,350;
+  }
+  &-text{
+    font-size: 30px;
+  }
+}
+.myCanvas{
+  //transform: rotate(-90deg);
+  //transform-origin: 50%;
+}

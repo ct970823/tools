@@ -1,14 +1,15 @@
 import React from 'react';
-import {Layout} from 'antd';
+import {Layout,BackTop} from 'antd';
 import {Switch, Redirect, Route} from 'react-router-dom'
 import HeaderBox from '../../components/header-box/header-box'
 import SliderBox from "../../components/slider-box/slider-box";
 import Applets from "../applets/applets";
 import JumpMp from "../jump-mp/jump-mp";
 import Welcome from "../welcome/welcome";
-import NoFoundPage from "../error/404";
+import NoFound from "../error/not-fond";
 import RichTextEditor from "../richTextEditor/richTextEditor";
-import ProTable from "../pro-table/pro-table";
+import TablePro from "../table-pro/table-pro";
+import MyProgress from "../my-progress/my-progress";
 import Upload from "../upload/upload";
 import './home.less'
 
@@ -31,17 +32,21 @@ function Home() {
                         minHeight: 280,
                     }}
                 >
+                    {/* 根据路由显示不同的页面 */}
                     <Switch>
                         <Redirect exact from='/' to='/welcome'/>
                         <Route path='/welcome' component={Welcome}/>
                         <Route path='/applets' component={Applets}/>
                         <Route path='/jump-mp' component={JumpMp}/>
                         <Route path='/richTextEditor' component={RichTextEditor}/>
-                        <Route path='/proTable' component={ProTable}/>
+                        <Route path='/proTable' component={TablePro}/>
+                        <Route path='/myProgress' component={MyProgress}/>
                         <Route path='/upload' component={Upload}/>
                         {/*上面没有一个匹配的，直接显示*/}
-                        <Route component={NoFoundPage}/>
+                        <Route component={NoFound}/>
                     </Switch>
+                    {/* 回到顶部 */}
+                    <BackTop />
                 </Content>
             </Layout>
         </Layout>

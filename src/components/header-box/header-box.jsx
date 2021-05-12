@@ -3,7 +3,7 @@ import {MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons";
 import {Layout} from "antd";
 import {setCollapsed} from "../../redux/actions";
 import {useSelector, useDispatch} from "react-redux";
-
+import './header-box.less'
 const {Header} = Layout;
 
 function HeaderBox() {
@@ -16,12 +16,15 @@ function HeaderBox() {
     }
 
     return (
-        <Header className="site-layout-background" style={{padding: 0}}>
-            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                className: 'trigger',
-                onClick: toggle,
-            })}
-        </Header>
+        <div>
+            <Header className="site-layout-background header_fixed">
+                {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                    className: 'trigger',
+                    onClick: toggle,
+                })}
+            </Header>
+            <div className="header_fixed_content"></div>
+        </div>
     )
 }
 

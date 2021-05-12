@@ -3,7 +3,9 @@ import {
     QrcodeOutlined,
     FileTextOutlined,
     TableOutlined,
-    WechatOutlined
+    WechatOutlined,
+    Loading3QuartersOutlined,
+    CloudUploadOutlined
 } from '@ant-design/icons'
 
  const menuList = [
@@ -34,9 +36,14 @@ import {
          icon: <TableOutlined />
      },
      {
+         title: '进度条',
+         key: '/MyProgress',
+         icon: <Loading3QuartersOutlined />
+     },
+     {
          title: '上传',
          key: '/upload',
-         icon: <TableOutlined />
+         icon: <CloudUploadOutlined />
      },
     // {
     //     title: '商品',

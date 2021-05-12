@@ -4,6 +4,7 @@ import {Layout, Menu} from "antd";
 import menuList from "../../router";
 import {useSelector} from 'react-redux'
 import {setHeadTitle} from "../../redux/actions";
+import './slider-box.less'
 
 const {Sider} = Layout;
 const {SubMenu, Item} = Menu
@@ -57,14 +58,22 @@ function SliderBox() {
 
     // console.log(useLocation().pathname)
     return (
-        <Sider className="slide-box" trigger={null} collapsible collapsed={collapsed}>
-            <div className="logo"/>
-            <Menu theme="dark" mode="inline" selectedKeys={[path]} defaultSelectedKeys={[openKey]}>
-                {
-                    getMenuNodes()
-                }
-            </Menu>
-        </Sider>
+        <div>
+            <Sider
+                className="slide-box"
+                trigger={null}
+                collapsible
+                collapsed={collapsed}
+            >
+                <div className="logo"/>
+                <Menu theme="dark" mode="inline" selectedKeys={[path]} defaultSelectedKeys={[openKey]}>
+                    {
+                        getMenuNodes()
+                    }
+                </Menu>
+            </Sider>
+            <div className={`slide_fixed_content ${collapsed?'slide_fixed_content_collapsed':''}`} />
+        </div>
     )
 }
 

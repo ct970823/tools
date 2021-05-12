@@ -61,11 +61,12 @@ const columns = [
         key: 'option',
         width: 120,
         valueType: 'option',
+        // eslint-disable-next-line
         render: () => [<a key="1">操作</a>, <a key="2">删除</a>],
     },
 ];
 
-export default () => {
+const TablePro = () => {
     const [columnsStateMap, setColumnsStateMap] = useState({
         name: {
             show: false,
@@ -101,3 +102,4 @@ export default () => {
         />
     );
 };
+export default TablePro

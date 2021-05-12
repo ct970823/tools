@@ -1,7 +1,7 @@
 import React from 'react';
 import { Result, Button } from 'antd';
 import {useHistory} from 'react-router-dom'
-export default () => {
+const NotFond = () => {
     const history = useHistory()
     function backHome () {
         history.replace('/')
@@ -15,3 +15,4 @@ export default () => {
         />
     )
 }
+export default NotFond
