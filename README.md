@@ -5,5 +5,5 @@
 - [x] 富文本编辑器
 - [x] antd-pro高级表格
 - [x] 进度条
-- [ ] typescript标准化
+- [x] typescript标准化
 

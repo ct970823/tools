@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Tabs,Progress} from "antd";
 import './my-progress.less'
 const { TabPane } = Tabs;
@@ -11,7 +11,7 @@ export default function MyProgress () {
     // const [width,setWidth] = useState(132) // 圆形进度条画布宽度，单位 px 就是外面圆的大小
 
     useEffect(()=>{
-        const myCanvas = document.getElementById('myCanvas')
+        const myCanvas:any = document.getElementById('myCanvas')
         const ctx = myCanvas.getContext('2d')
         // 绘制圆
         ctx.beginPath()
@@ -36,7 +36,7 @@ export default function MyProgress () {
     })
 
     return (
-        <Tabs defaultActiveKey="3"className="my-progress">
+        <Tabs defaultActiveKey="3" className="my-progress">
             <TabPane tab="antd" key="1">
                 <Progress
                     type="circle"

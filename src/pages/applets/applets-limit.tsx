@@ -1,22 +1,28 @@
 import React, {useState} from 'react'
 import {Card, Form, Input, Button, Select} from 'antd';
-import appletsList from './appletsList'
-import {getQrcodeLimit,getAccessToken,downloadPng} from "../../api";
+import {appletsList,APPLETS} from './appletsUtils'
+import {getAppletsLimit,getAccessToken,downloadPng} from "../../api";
 
-function QrcodeLimit() {
+// interface APPLETSLIMIT {
+//     qrcodeName:string // 小程序码名字
+//     path:string // 小程序码页面链接
+//     applets:number // 小程序列表的下标
+//     codeWidth:string // 小程序码的大小
+// }
+
+
+function AppletsLimit() {
     //定义状态
     const [loading, setLoading] = useState(false)
-
     // 提交
-    const onFinish = async (values) => {
-        console.log('Success:', values);
+    const onFinish = async (values:APPLETS) => {
         const {qrcodeName, path, applets, codeWidth} = values
         const {appId, appSecret} = appletsList[applets]
         // 调用接口获取
         try {
             setLoading(true)
             const {access_token} = await getAccessToken(appId, appSecret)
-            const  res = await getQrcodeLimit(access_token, path, codeWidth)
+            const  res = await getAppletsLimit(access_token, path, codeWidth)
             await downloadPng({
                 buffer: res,
                 qrcodeName,
@@ -26,7 +32,11 @@ function QrcodeLimit() {
         } catch (e) {
             setLoading(false)
         }
+
     };
+
+
+
     const Item = Form.Item
     const Option = Select.Option
     const layout = {
@@ -40,7 +50,7 @@ function QrcodeLimit() {
 
     return (
 
-        <Card title="生成小程序二维码(有次数限制)" className="applets-card">
+        <Card title="生成小程序太阳码(有次数限制)" className="applets-card">
 
             <Form
                 {...layout}
@@ -63,11 +73,11 @@ function QrcodeLimit() {
                 </Item>
 
                 <Item
-                    label="二维码名称"
+                    label="太阳码名称"
                     name="qrcodeName"
-                    rules={[{required: true, message: '请输入二维码名称!'}]}
+                    rules={[{required: true, message: '请输入太阳码名称!'}]}
                 >
-                    <Input placeholder="请输入二维码名称"/>
+                    <Input placeholder="请输入太阳码名称"/>
                 </Item>
 
                 <Item
@@ -78,9 +88,8 @@ function QrcodeLimit() {
                     <Input placeholder="pages/shop/shop?id=2"/>
                 </Item>
                 <Item
-                    label="二维码宽度"
+                    label="太阳码宽度"
                     name="codeWidth"
-                    rules={[{message: '请输入二维码宽度!'}]}
                 >
                     <Input type="number" placeholder="280-1280"/>
                 </Item>
@@ -95,4 +104,4 @@ function QrcodeLimit() {
     );
 }
 
-export default QrcodeLimit
+export default AppletsLimit

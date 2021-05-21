@@ -8,6 +8,15 @@ import {
     CloudUploadOutlined
 } from '@ant-design/icons'
 
+export interface ROUTERTYPE {
+    title:String; // 菜单标题名称
+    key: String; // 对应的 path
+    icon:JSX.Element; // 图标名称
+    children?:ROUTERTYPE[]
+    isPublic?:Boolean
+}
+
+
  const menuList = [
     {
         title: '首页', // 菜单标题名称
@@ -42,7 +51,7 @@ import {
      },
      {
          title: '上传',
-         key: '/upload',
+         key: '/MyUpload',
          icon: <CloudUploadOutlined />
      },
     // {

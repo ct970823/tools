@@ -1,14 +1,23 @@
 import React, {useState} from 'react';
+import type { ProColumns, ColumnsState } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
-const valueEnum = {
+const valueEnum:any = {
     0: 'close',
     1: 'running',
     2: 'online',
     3: 'error',
 };
 
-const tableListDataSource = [];
+export type TableListItem = {
+    key: number;
+    name: string;
+    status: string;
+    updatedAt: number;
+    createdAt: number;
+    money: number;
+};
+const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
     tableListDataSource.push({
@@ -21,7 +30,7 @@ for (let i = 0; i < 2; i += 1) {
     });
 }
 
-const columns = [
+const columns: ProColumns<TableListItem>[] = [
     {
         title: '标题',
         dataIndex: 'name',
@@ -35,11 +44,11 @@ const columns = [
         onFilter: true,
         valueType: 'select',
         valueEnum: {
-            all: {text: '全部', status: 'Default'},
-            close: {text: '关闭', status: 'Default'},
-            running: {text: '运行中', status: 'Processing'},
-            online: {text: '已上线', status: 'Success'},
-            error: {text: '异常', status: 'Error'},
+            all: { text: '全部', status: 'Default' },
+            close: { text: '关闭', status: 'Default' },
+            running: { text: '运行中', status: 'Processing' },
+            online: { text: '已上线', status: 'Success' },
+            error: { text: '异常', status: 'Error' },
         },
     },
     {
@@ -61,28 +70,27 @@ const columns = [
         key: 'option',
         width: 120,
         valueType: 'option',
-        // eslint-disable-next-line
         render: () => [<a key="1">操作</a>, <a key="2">删除</a>],
     },
 ];
 
 const TablePro = () => {
-    const [columnsStateMap, setColumnsStateMap] = useState({
+    const [columnsStateMap, setColumnsStateMap] = useState<Record<string, ColumnsState>>({
         name: {
             show: false,
             order: 2,
         },
     });
     return (
-        <ProTable
+        <ProTable<TableListItem, { keyWord?: string }>
             columns={columns}
             request={(params) =>
                 Promise.resolve({
                     data: tableListDataSource.filter((item) => {
-                        if (!params.keyWord) {
+                        if (!params?.keyWord) {
                             return true;
                         }
-                        if (item.name.includes(params.keyWord) || item.status.includes(params.keyWord)) {
+                        if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
                             return true;
                         }
                         return false;

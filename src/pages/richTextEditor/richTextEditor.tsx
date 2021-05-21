@@ -4,10 +4,12 @@
 import React from 'react'
 import BraftEditor from 'braft-editor'
 import {Button, message} from 'antd'
-import {CopyToClipboard} from 'react-copy-to-clipboard'
+// import {CopyToClipboard} from 'react-copy-to-clipboard'
+
 import 'braft-editor/dist/index.css'
 import './richTextEditor.less'
 import 'braft-editor/dist/output.css'
+const CopyToClipboard = require('react-copy-to-clipboard')
 class RichTextEditor extends React.Component {
     state = {
         editorState: BraftEditor.createEditorState(null),
@@ -32,7 +34,7 @@ class RichTextEditor extends React.Component {
         // const result = await saveEditorContent(htmlContent)
     }
 
-    handleEditorChange = (editorState) => {
+    handleEditorChange = (editorState:any) => {
         this.setState({ editorState,copied:false })
     }
 
@@ -41,9 +43,9 @@ class RichTextEditor extends React.Component {
         this.setState({htmlString})
     }
 
-    copyHtml = () => {
+    copyHtml = async () => {
         this.setState({copied: true})
-            message.success('复制成功')
+            await message.success('复制成功')
     }
 
     render () {

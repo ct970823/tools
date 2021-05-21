@@ -1,13 +1,21 @@
 import React, {useState} from 'react'
 import {Card, Form, Input, Button, Select} from 'antd';
-import appletsList from './appletsList'
+import {appletsList,APPLETS} from './appletsUtils'
 import {getAppletsUnLimit,getAccessToken,downloadPng} from "../../api";
+
+// interface APPLETSUNLIMIT {
+//     qrcodeName:string // 小程序码名字
+//     path:string // 小程序码页面链接
+//     applets:number // 小程序列表的下标
+//     codeWidth:number|string // 小程序码的大小
+//     scene:string // 小程序码参数
+// }
 
 function AppletsUnlimited() {
     //定义状态
     const [loading, setLoading] = useState(false)
     // 提交
-    const onFinish = async (values) => {
+    const onFinish = async (values:APPLETS) => {
         console.log('Success:', values);
         const {qrcodeName, path, applets, codeWidth, scene} = values
         const {appId, appSecret} = appletsList[applets]

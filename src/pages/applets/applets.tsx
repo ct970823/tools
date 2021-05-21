@@ -4,7 +4,7 @@ import AppletsLimit from "./applets-limit";
 import AppletsUnlimited from "./applets-unlimited";
 import './applets.less'
 
-function Applets() {
+const Applets:React.FC = () => {
     return (
         <div className='applets'>
             <QrcodeLimit/>

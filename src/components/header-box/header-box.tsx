@@ -7,7 +7,7 @@ import './header-box.less'
 const {Header} = Layout;
 
 function HeaderBox() {
-    const collapsed = useSelector(state => state.collapsed)
+    const collapsed = useSelector((state:{ collapsed: string }) => state['collapsed'])
     const dispatch = useDispatch()
 
     function toggle() {
@@ -23,7 +23,7 @@ function HeaderBox() {
                     onClick: toggle,
                 })}
             </Header>
-            <div className="header_fixed_content"></div>
+            <div className="header_fixed_content" />
         </div>
     )
 }

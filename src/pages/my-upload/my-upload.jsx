@@ -13,12 +13,12 @@ const MyUpload = (props) => {
 
 
     const [fileList, setFileList] = useState([
-        {
-            uid: '-1',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
+        // {
+        //     uid: '-1',
+        //     name: 'image.png',
+        //     status: 'done',
+        //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // },
     ]);
     const [previewVisible,setPreviewVisible] = useState(false)
     const [previewImage,setPreviewImage] = useState('')
@@ -79,6 +79,7 @@ const MyUpload = (props) => {
                     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                     listType='picture-card'
                     fileList={fileList}
+                    maxCount={3}
                     onChange={onChange}
                     onPreview={handlePreview}
                     onDownload={handleDownLoad}
@@ -90,6 +91,11 @@ const MyUpload = (props) => {
                     {/*}*/}
                     {/*{fileList.length < 5 && '+ Upload'}*/}
                     + Upload
+                    {/*{*/}
+                    {/*    this.state.imageUrl*/}
+                    {/*        ? <img src={fileList} className={style['avatar']} />*/}
+                    {/*        : <Icon type='plus' className={style['avatar-uploader-trigger']} />*/}
+                    {/*}*/}
                 </Upload>
             </ImgCrop>
             <Modal
