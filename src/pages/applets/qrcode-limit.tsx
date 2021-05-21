@@ -11,7 +11,6 @@ function QrcodeLimit() {
         console.log('Success:', values);
         const {qrcodeName, path, applets, codeWidth} = values
         const {appId, appSecret} = appletsList[applets]
-        console.log(appId, appSecret)
         // 调用接口获取
         try {
             setLoading(true)
