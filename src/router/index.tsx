@@ -5,7 +5,8 @@ import {
     TableOutlined,
     WechatOutlined,
     Loading3QuartersOutlined,
-    CloudUploadOutlined
+    CloudUploadOutlined,
+    BarcodeOutlined
 } from '@ant-design/icons'
 
 export interface ROUTERTYPE {
@@ -48,6 +49,11 @@ export interface ROUTERTYPE {
          title: '进度条',
          key: '/MyProgress',
          icon: <Loading3QuartersOutlined />
+     },
+     {
+         title: '条形码',
+         key: '/JsBarcode',
+         icon: <BarcodeOutlined />
      },
      {
          title: '上传',

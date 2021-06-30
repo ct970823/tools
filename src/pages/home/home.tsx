@@ -10,6 +10,7 @@ import NoFound from "../error/not-fond";
 import RichTextEditor from "../richTextEditor/richTextEditor";
 import TablePro from "../table-pro/table-pro";
 import MyProgress from "../my-progress/my-progress";
+import JsBarcode from "../js-barcode/js-barcode";
 import MyUpload from "../my-upload/my-upload";
 import './home.less'
 
@@ -41,6 +42,7 @@ function Home() {
                         <Route path='/richTextEditor' component={RichTextEditor}/>
                         <Route path='/proTable' component={TablePro}/>
                         <Route path='/myProgress' component={MyProgress}/>
+                        <Route path='/jsBarcode' component={JsBarcode}/>
                         <Route path='/myUpload' component={MyUpload}/>
                         {/*上面没有一个匹配的，直接显示*/}
                         <Route component={NoFound}/>
