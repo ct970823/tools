@@ -8,7 +8,7 @@ export default class jsBarcode extends Component {
         code:''
     }
 
-    barcode = React.createRef() as any
+    barcode:any = React.createRef()
 
 
     componentDidMount() {
