@@ -1,6 +1,6 @@
 import React from 'react';
-import {Layout,BackTop} from 'antd';
-import {Switch, Redirect, Route}  from 'react-router-dom'
+import {Layout, BackTop} from 'antd';
+import {Switch, Redirect, Route} from 'react-router-dom'
 import HeaderBox from '../../components/header-box/header-box'
 import SliderBox from "../../components/slider-box/slider-box";
 import Applets from "../applets/applets";
@@ -11,6 +11,7 @@ import RichTextEditor from "../richTextEditor/richTextEditor";
 import TablePro from "../table-pro/table-pro";
 import MyProgress from "../my-progress/my-progress";
 import JsBarcode from "../js-barcode/js-barcode";
+import HtmlToImg from "../html-to-img/html-to-img";
 import MyUpload from "../my-upload/my-upload";
 import './home.less'
 
@@ -43,12 +44,13 @@ function Home() {
                         <Route path='/proTable' component={TablePro}/>
                         <Route path='/myProgress' component={MyProgress}/>
                         <Route path='/jsBarcode' component={JsBarcode}/>
+                        <Route path='/HtmlToImg' component={HtmlToImg}/>
                         <Route path='/myUpload' component={MyUpload}/>
                         {/*上面没有一个匹配的，直接显示*/}
                         <Route component={NoFound}/>
                     </Switch>
                     {/* 回到顶部 */}
-                    <BackTop />
+                    <BackTop/>
                 </Content>
             </Layout>
         </Layout>
