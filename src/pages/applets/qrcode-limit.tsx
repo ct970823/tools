@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import {Card, Form, Input, Button, Select} from 'antd';
-import {appletsList,APPLETS} from './appletsUtils'
-import {getQrcodeLimit,getAccessToken,downloadPng} from "../../api";
+import {appletsList, APPLETS} from './appletsUtils'
+import {getQrcodeLimit, getAccessToken, downloadPng} from "../../api";
+
 function QrcodeLimit() {
     //定义状态
     const [loading, setLoading] = useState(false)
 
     // 提交
-    const onFinish = async (values:APPLETS) => {
+    const onFinish = async (values: APPLETS) => {
         console.log('Success:', values);
         const {qrcodeName, path, applets, codeWidth} = values
         const {appId, appSecret} = appletsList[applets]
@@ -15,7 +16,7 @@ function QrcodeLimit() {
         try {
             setLoading(true)
             const {access_token} = await getAccessToken(appId, appSecret)
-            const  res = await getQrcodeLimit(access_token, path, codeWidth)
+            const res = await getQrcodeLimit(access_token, path, codeWidth)
             await downloadPng({
                 buffer: res,
                 qrcodeName,
@@ -43,7 +44,6 @@ function QrcodeLimit() {
 
             <Form
                 {...layout}
-                name="basic"
                 initialValues={{remember: true}}
                 onFinish={onFinish}
             >

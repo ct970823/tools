@@ -53,7 +53,6 @@ function AppletsUnlimited() {
 
             <Form
                 {...layout}
-                name="basic"
                 initialValues={{remember: true}}
                 onFinish={onFinish}
             >

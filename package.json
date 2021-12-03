@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/pro-layout": "^6.24.0",
     "@ant-design/pro-table": "^2.33.0",
     "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -18,6 +19,7 @@
     "antd-img-crop": "^3.14.1",
     "braft-editor": "^2.3.9",
     "craco-antd": "^1.19.0",
+    "html2canvas": "^1.1.4",
     "http-proxy-middleware": "^1.1.0",
     "jsbarcode": "^3.11.4",
     "jszip": "^3.6.0",

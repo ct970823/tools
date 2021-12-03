@@ -16,7 +16,7 @@ function HeaderBox() {
     }
 
     return (
-        <div>
+        <div data-component="header-box">
             <Header className="site-layout-background header_fixed">
                 {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                     className: 'trigger',

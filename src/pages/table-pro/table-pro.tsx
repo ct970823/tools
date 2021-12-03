@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import type { ProColumns, ColumnsState } from '@ant-design/pro-table';
+import type {ProColumns, ColumnsState} from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
-const valueEnum:any = {
+const valueEnum: any = {
     0: 'close',
     1: 'running',
     2: 'online',
@@ -44,11 +44,11 @@ const columns: ProColumns<TableListItem>[] = [
         onFilter: true,
         valueType: 'select',
         valueEnum: {
-            all: { text: '全部', status: 'Default' },
-            close: { text: '关闭', status: 'Default' },
-            running: { text: '运行中', status: 'Processing' },
-            online: { text: '已上线', status: 'Success' },
-            error: { text: '异常', status: 'Error' },
+            all: {text: '全部', status: 'Default'},
+            close: {text: '关闭', status: 'Default'},
+            running: {text: '运行中', status: 'Processing'},
+            online: {text: '已上线', status: 'Success'},
+            error: {text: '异常', status: 'Error'},
         },
     },
     {

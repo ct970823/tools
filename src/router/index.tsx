@@ -11,77 +11,115 @@ import {
 } from '@ant-design/icons'
 
 export interface ROUTERTYPE {
-    title: String; // 菜单标题名称
-    key: String; // 对应的 path
+    name: String; // 菜单标题名称
+    path: String; // 对应的 path
     icon: JSX.Element; // 图标名称
-    children?: ROUTERTYPE[]
+    routes?: ROUTERTYPE[]
     isPublic?: Boolean
 }
 
 
-const menuList = [
+const menuList =
     {
-        title: '首页', // 菜单标题名称
-        key: '/welcome', // 对应的 path
-        icon: <HomeOutlined/>, // 图标名称
-        isPublic: true
-    },
-    {
-        title: '小程序生成码',
-        key: '/applets',
-        icon: <QrcodeOutlined/>
-    },
-    {
-        title: 'H5跳转小程序',
-        key: '/jump-mp',
-        icon: <WechatOutlined/>
-    },
-    {
-        title: '富文本',
-        key: '/richTextEditor',
-        icon: <FileTextOutlined/>
-    },
-    {
-        title: '高级表格',
-        key: '/proTable',
-        icon: <TableOutlined/>
-    },
-    {
-        title: '进度条',
-        key: '/MyProgress',
-        icon: <Loading3QuartersOutlined/>
-    },
-    {
-        title: '条形码',
-        key: '/JsBarcode',
-        icon: <BarcodeOutlined/>
-    },
-    {
-        title: 'html转canvas',
-        key: '/HtmlToImg',
-        icon: <Html5Outlined/>
-    },
-    {
-        title: '上传',
-        key: '/MyUpload',
-        icon: <CloudUploadOutlined/>
-    },
-    // {
-    //     title: '商品',
-    //     key: '/products',
-    //     icon: <ShopOutlined/>,
-    //     children: [ // 子菜单列表
-    //         {
-    //             title: '品类管理',
-    //             key: '/category',
-    //             icon: <BarsOutlined/>
-    //         },
-    //         {
-    //             title: '商品管理',
-    //             key: '/product',
-    //             icon: <ShoppingOutlined/>
-    //         },
-    //     ]
-    // },
-]
+        route: {
+            path: '/',
+            routes: [
+                {
+                    name: '首页', // 菜单标题名称
+                    path: '/welcome', // 对应的 path
+                    icon: <HomeOutlined/>, // 图标名称
+                    component: './welcome',
+                    isPublic: true
+                },
+                {
+                    name: '小程序生成码',
+                    path: '/applets',
+                    icon: <QrcodeOutlined/>,
+                    component: './applets',
+                },
+                {
+                    name: 'H5跳转小程序',
+                    path: '/jump-mp',
+                    icon: <WechatOutlined/>,
+                    component: './jump-mp',
+                },
+                {
+                    name: '微信',
+                    path: '/wechat',
+                    icon: <WechatOutlined/>,
+                    routes:[
+                        {
+                            name: '接口注入',
+                            path: 'wx-config',
+                            component: './wx-config',
+                        },
+                        {
+                            name: '登录',
+                            path: 'wx-login',
+                            component: './wx-login',
+                        },
+                        {
+                            name: '支付',
+                            path: 'wx-pay',
+                            component: './wx-pay',
+                        }
+                    ]
+                },
+                {
+                    name: '富文本',
+                    path: '/richTextEditor',
+                    icon: <FileTextOutlined/>,
+                    component: './richTextEditor',
+                },
+                {
+                    name: '高级表格',
+                    path: '/proTable',
+                    icon: <TableOutlined/>,
+                    component: './proTable',
+                },
+                {
+                    name: '进度条',
+                    path: '/MyProgress',
+                    icon: <Loading3QuartersOutlined/>,
+                    component: './MyProgress',
+                },
+                {
+                    name: '条形码',
+                    path: '/JsBarcode',
+                    icon: <BarcodeOutlined/>,
+                    component: './JsBarcode',
+                },
+                {
+                    name: 'html转canvas',
+                    path: '/HtmlToImg',
+                    icon: <Html5Outlined/>,
+                    component: './HtmlToImg',
+                },
+                {
+                    name: '上传',
+                    path: '/MyUpload',
+                    icon: <CloudUploadOutlined/>,
+                    component: './MyUpload',
+                },
+                // {
+                //     name: '商品',
+                //     path: '/products',
+                //     icon: <ShopOutlined/>,
+                //     routes: [ // 子菜单列表
+                //         {
+                //             name: '品类管理',
+                //             path: '/category',
+                //             icon: <BarsOutlined/>
+                //         },
+                //         {
+                //             name: '商品管理',
+                //             path: '/product',
+                //             icon: <ShoppingOutlined/>
+                //         },
+                //     ]
+                // },
+            ]
+        }
+    }
+
 export default menuList
