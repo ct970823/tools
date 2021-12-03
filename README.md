@@ -8,4 +8,5 @@
 - [x] typescript标准化
 - [x] 条形码生成、下载和打包下载
 - [x] html2canvas实现html截取下载图片功能
+- [x] 微信登录和微信支付封装
 
